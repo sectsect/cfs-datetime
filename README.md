@@ -1,2 +1,20 @@
-# cfs-datetime
-Add powerful datetimepicker field type using flatpickr.js
+# CFS DateTime Add-on
+### Add Powerful Datetimepicker field type using [flatpickr.js](https://chmln.github.io/flatpickr/)
+
+#### Requirements
+- - -
+* Activation [Custom Field Suite](https://wordpress.org/plugins/custom-field-suite/) Plugin.
+
+#### Installation
+- - -
+
+ 1. `cd /path-to-your/wp-content/plugins/`
+ 2. `git clone git@github.com:sectsect/cfs-datetime.git`  
+ That's it:ok_hand:
+
+#### Documentation
+- - -
+See [flatpickr.js](https://chmln.github.io/flatpickr/) Page.
+
+
+Based on the [CFS Google Maps Add-on](https://github.com/mgibbs189/cfs-google-maps) by [Matt Gibbs](https://github.com/mgibbs189)
