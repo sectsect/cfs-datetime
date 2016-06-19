@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: CFS - DateTime Add-on
-Plugin URI: https://github.com/sectsect/xxxxxx
-Description: Add powerful datetimepicker field type using flatpickr.js https://chmln.github.io/flatpickr/
+Plugin URI: https://github.com/sectsect/cfs-datetime
+Description: Add Powerful Datetimepicker field type for Custom Field Suite using flatpickr.js.
 Author: SECT INTERACTIVE AGENCY
 Version: 1.0.0
 Author URI: https://www.ilovesect.com/
