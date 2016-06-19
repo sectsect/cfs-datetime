@@ -301,6 +301,22 @@ class cfs_datetime_picker extends cfs_field
 		</td>
 	</tr>
 
+	<tr class="field_option field_option_<?php echo $this->name; ?>">
+		<td class="label">
+			<label><?php _e( 'l10n.firstDayOfWeek', 'cfs-datetime' ); ?></label>
+		</td>
+		<td>
+			<?php
+				CFS()->create_field( array(
+					'type'             => 'text',
+					'input_name'       => "cfs[fields][$key][options][l10nfirstDayOfWeek]",
+					'value'            => ("" !== $this->get_option( $field, 'l10nfirstDayOfWeek' )) ? $this->get_option( $field, 'l10nfirstDayOfWeek' ) : ""
+				));
+			?>
+			<p style="margin-top: 5px;">Default: <code>0</code><br>Start the calendar on a different weekday (0 = Sunday, 1 = Monday, 2 = Tuesday, etc.)</p>
+		</td>
+	</tr>
+
 
 <?php
     }
@@ -311,6 +327,9 @@ class cfs_datetime_picker extends cfs_field
 		<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.6/flatpickr.min.js"></script>
 		<script>
 			jQuery(function(){
+				<?php if($this->get_option($field, 'l10nfirstDayOfWeek') && $this->get_option($field, 'l10nfirstDayOfWeek') != 0): ?>
+				flatpickr.init.prototype.l10n.firstDayOfWeek = <?php echo intval($this->get_option($field, 'l10nfirstDayOfWeek')); ?>;
+				<?php endif; ?>
 			    flatpickr('.flatpickr');
 			});
 		</script>
