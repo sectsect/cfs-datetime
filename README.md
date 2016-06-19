@@ -17,5 +17,8 @@
 - - -
 See [flatpickr.js](https://chmln.github.io/flatpickr/) Page.
 
+#### Change log  
+ * **1.0.1** - Add field for `l10n.firstDayOfWeek`
+ * **1.0.0** - Initial Release
 
 Based on the [CFS Google Maps Add-on](https://github.com/mgibbs189/cfs-google-maps) by [Matt Gibbs](https://github.com/mgibbs189)
