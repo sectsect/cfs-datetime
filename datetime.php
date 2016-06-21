@@ -11,6 +11,14 @@ class cfs_datetime_picker extends cfs_field
 
     function html( $field ) {
 ?>
+	<script>
+		jQuery(function(){
+			<?php if($this->get_option($field, 'l10nfirstDayOfWeek') && $this->get_option($field, 'l10nfirstDayOfWeek') != 0): ?>
+			flatpickr.init.prototype.l10n.firstDayOfWeek = <?php echo intval($this->get_option($field, 'l10nfirstDayOfWeek')); ?>;
+			<?php endif; ?>
+			flatpickr('.flatpickr');
+		});
+	</script>
 	<input name="<?php echo $field->input_name; ?>" class=flatpickr<?php if($this->get_option($field, 'placeholder')): ?>
 		placeholder="<?php echo $this->get_option($field, 'placeholder'); ?>"<?php endif; ?>
 		<?php if($this->get_option($field, 'dateFormat')): ?> data-dateFormat="<?php echo $this->get_option($field, 'dateFormat'); ?>"<?php endif; ?>
@@ -390,16 +398,8 @@ class cfs_datetime_picker extends cfs_field
 
     function input_head( $field = null ) {
 ?>
-		<link href="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.6/flatpickr.min.css" rel="stylesheet">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.6/flatpickr.min.js"></script>
-		<script>
-			jQuery(function(){
-				<?php if($this->get_option($field, 'l10nfirstDayOfWeek') && $this->get_option($field, 'l10nfirstDayOfWeek') != 0): ?>
-				flatpickr.init.prototype.l10n.firstDayOfWeek = <?php echo intval($this->get_option($field, 'l10nfirstDayOfWeek')); ?>;
-				<?php endif; ?>
-			    flatpickr('.flatpickr');
-			});
-		</script>
+	<link href="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.6/flatpickr.min.css" rel="stylesheet">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.6/flatpickr.min.js"></script>
 <?php
     }
 }
