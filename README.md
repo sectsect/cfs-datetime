@@ -18,7 +18,8 @@
 See [flatpickr.js](https://chmln.github.io/flatpickr/) Page.
 
 #### Change log  
- * **1.0.3** - Support the use of the Loop Field.
+ * **1.0.4** - Add support Localization.
+ * **1.0.3** - Add support the use of the Loop Field.
  * **1.0.2** - Add some fields for options and bug fix.
  * **1.0.1** - Add field for `l10n.firstDayOfWeek`
  * **1.0.0** - Initial Release
