@@ -398,8 +398,8 @@ class cfs_datetime_picker extends cfs_field
 
     function input_head( $field = null ) {
 ?>
-	<link href="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.6/flatpickr.min.css" rel="stylesheet">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.6/flatpickr.min.js"></script>
+	<link href="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.css" rel="stylesheet">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.js"></script>
 <?php
     }
 }
