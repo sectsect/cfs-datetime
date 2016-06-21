@@ -364,7 +364,6 @@ class cfs_datetime_picker extends cfs_field
 			<p style="margin-top: 5px;">Default: <code>5</code></p>
 		</td>
 	</tr>
-
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
 			<label><?php _e( 'l10n.firstDayOfWeek', 'cfs-datetime' ); ?></label>
@@ -378,6 +377,37 @@ class cfs_datetime_picker extends cfs_field
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>0</code><br>Start the calendar on a different weekday (0 = Sunday, 1 = Monday, 2 = Tuesday, etc.)</p>
+		</td>
+	</tr>
+	<tr class="field_option field_option_<?php echo $this->name; ?>">
+		<td class="label">
+			<label><?php _e( 'Localization', 'cfs-datetime' ); ?></label>
+		</td>
+		<td>
+			<?php
+				CFS()->create_field( array(
+					'type'        => 'select',
+					'input_name'  => "cfs[fields][$key][options][localize]",
+					'options'     => array(
+						'choices' => array(
+							'ar'  => 'Arabic',
+							'bn'  => 'Bangla',
+							'de'  => 'German',
+							'es'  => 'Spanish',
+							'fr'  => 'French',
+							'hi'  => 'Hindi',
+							'ja'  => 'Japanese',
+							'pa'  => 'Punjabi',
+							'pt'  => 'Portuguese',
+							'ru'  => 'Russian',
+							'zh'  => 'Mandarin'
+						),
+						'force_single' => true,
+					),
+					'value' => $this->get_option( $field, 'localize', 'false' )
+				));
+			?>
+			<p style="margin-top: 5px;">Default: <code>English</code></p>
 		</td>
 	</tr>
 
@@ -400,6 +430,9 @@ class cfs_datetime_picker extends cfs_field
 ?>
 	<link href="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.css" rel="stylesheet">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.js"></script>
+	<?php if($this->get_option($field, 'localize')): ?>
+	<script src="<?php echo plugin_dir_url( __FILE__ ); ?>assets/js/lang/flatpickr.l10n.<?php echo $this->get_option($field, 'localize'); ?>.js"></script>
+	<?php endif ?>
 <?php
     }
 }
