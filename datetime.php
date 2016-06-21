@@ -5,7 +5,7 @@ class cfs_datetime_picker extends cfs_field
 
     function __construct() {
         $this->name = 'datetime_picker';
-        $this->label = __( 'Date Time', 'cfs-datetime' );
+		$this->label = __( 'DateTime (Advanced)', 'cfs-datetime' );
     }
 
 
