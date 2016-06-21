@@ -14,14 +14,36 @@ class cfs_datetime_picker extends cfs_field
 	<input name="<?php echo $field->input_name; ?>" class=flatpickr<?php if($this->get_option($field, 'placeholder')): ?>
 		placeholder="<?php echo $this->get_option($field, 'placeholder'); ?>"<?php endif; ?>
 		<?php if($this->get_option($field, 'dateFormat')): ?> data-dateFormat="<?php echo $this->get_option($field, 'dateFormat'); ?>"<?php endif; ?>
-		<?php if($this->get_option($field, 'mindate')): ?> data-mindate="<?php echo $this->get_option($field, 'mindate'); ?>"<?php endif; ?>
-		<?php if($this->get_option($field, 'maxdate')): ?> data-maxdate="<?php echo $this->get_option($field, 'maxdate'); ?>""<?php endif; ?>
+		<?php
+		    $today = new DateTime();
+			$mindate = $this->get_option($field, 'mindate');
+			$maxdate = $this->get_option($field, 'maxdate');
+			if($mindate){
+				$min = $today->modify($mindate)->format('Y-m-d');
+			}
+			if($maxdate){
+				$max = $today->modify($maxdate)->format('Y-m-d');
+			}
+		?>
+		<?php if($mindate): ?> data-mindate="<?php echo $min; ?>"<?php endif; ?>
+		<?php if($maxdate): ?> data-maxdate="<?php echo $max; ?>""<?php endif; ?>
 		<?php if($this->get_option($field, 'enabletime') == "true"): ?> data-enabletime=<?php echo $this->get_option($field, 'enabletime'); ?><?php endif; ?>
 		<?php if($this->get_option($field, 'time_24hr') == "true"): ?> data-time_24hr=<?php echo $this->get_option($field, 'time_24hr'); ?><?php endif; ?>
 		<?php if($this->get_option($field, 'timeFormat')): ?> data-timeFormat="<?php echo $this->get_option($field, 'timeFormat'); ?>"<?php endif; ?>
 		<?php if($this->get_option($field, 'nocalendar') == "true"): ?> data-nocalendar=<?php echo $this->get_option($field, 'nocalendar'); ?><?php endif; ?>
 		<?php if($this->get_option($field, 'altinput') == "true"): ?> data-altinput=<?php echo $this->get_option($field, 'altinput'); ?><?php endif; ?>
 		<?php if($this->get_option($field, 'altFormat')): ?> data-altFormat="<?php echo $this->get_option($field, 'altFormat'); ?>"<?php endif; ?>
+		<?php
+			$today = new DateTime();
+			$defaultdate = $this->get_option($field, 'defaultDate');
+			if($defaultdate && $defaultdate == "current"){
+				$default = $today->format('Y-m-d H:i:s');
+			}elseif($defaultdate && $defaultdate != "current"){
+				$default = $today->modify($defaultdate)->format('Y-m-d H:i:s');
+			}
+		?>
+		<?php if($defaultdate): ?> data-defaultDate="<?php echo $default; ?>"<?php endif; ?>
+		<?php if($this->get_option($field, 'utc') == "true"): ?> data-utc="<?php echo $this->get_option($field, 'utc'); ?>"<?php endif; ?>
 		<?php if($this->get_option($field, 'weeknumbers') == "true"): ?> data-weeknumbers=<?php echo $this->get_option($field, 'weeknumbers'); ?><?php endif; ?>
 		<?php if($this->get_option($field, 'inline') == "true"): ?>  data-inline=<?php echo $this->get_option($field, 'inline'); ?><?php endif; ?>
 		<?php if($this->get_option($field, 'hourIncrement')): ?> data-hourIncrement=<?php echo intval($this->get_option($field, 'hourIncrement')); ?><?php endif; ?>
@@ -76,11 +98,15 @@ class cfs_datetime_picker extends cfs_field
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>null</code></p>
+			<h4>Example:</h4>
+			<div>
+				<code>today</code>, <code>+1 days</code>, <code>-1 days</code>, <code>+1 weeks</code>, <code>+1 months + 2 days</code>, <code>first day of this months</code>, <code>last day of this months</code>, <code>first day of next months</code>, <code>first day of last months</code>, <code>sunday</code>, <code>monday of this week</code>, <code>third sunday of this months</code>
+			</div>
 		</td>
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-maxdate', 'cfs-datetime' ); ?></label>
+			<label><?php _e( 'data-maxdate', 'cfs-datetime' ); ?><br><span style="font-size: 10px;color: #777;">(This field is in sync with the value of <code>date mindate</code> field.)</span></label>
 		</td>
 		<td>
 			<?php
@@ -91,6 +117,10 @@ class cfs_datetime_picker extends cfs_field
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>null</code></p>
+			<h4>Example:</h4>
+			<div>
+				<code>today</code>, <code>+1 days</code>, <code>-1 days</code>, <code>+1 weeks</code>, <code>+1 months + 2 days</code>, <code>first day of this months</code>, <code>last day of this months</code>, <code>first day of next months</code>, <code>first day of last months</code>, <code>sunday</code>, <code>monday of this week</code>, <code>third sunday of this months</code>
+			</div>
 		</td>
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
@@ -149,7 +179,7 @@ class cfs_datetime_picker extends cfs_field
 					'value'            => ("" !== $this->get_option( $field, 'timeFormat' )) ? $this->get_option( $field, 'timeFormat' ) : ""
 				));
 			?>
-			<p style="margin-top: 5px;">Default: <code>H:i</code></p>
+			<p style="margin-top: 5px;">Default: <code>h:i A</code></p>
 		</td>
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
@@ -224,6 +254,32 @@ class cfs_datetime_picker extends cfs_field
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>null</code></p>
+			<h4>Example:</h4>
+			<div>
+				<code>current</code>, <code>today</code>, <code>+1 days</code>, <code>-1 days</code>, <code>+1 weeks</code>, <code>+1 months + 2 days + 3 hours</code>, <code>noon</code> <code>first day of this months</code>, <code>last day of this months</code>, <code>first day of next months</code>, <code>first day of last months</code>, <code>sunday</code>, <code>monday of this week</code>, <code>third sunday of this months</code>
+			</div>
+		</td>
+	</tr>
+	<tr class="field_option field_option_<?php echo $this->name; ?>">
+		<td class="label">
+			<label><?php _e( 'data-utc', 'cfs-datetime' ); ?></label>
+		</td>
+		<td>
+			<?php
+				CFS()->create_field( array(
+					'type'        => 'select',
+					'input_name'  => "cfs[fields][$key][options][utc]",
+					'options'     => array(
+						'choices' => array(
+							'false'  => 'false',
+							'true'   => 'true'
+						),
+						'force_single' => true,
+					),
+					'value' => $this->get_option( $field, 'utc', 'false' )
+				));
+			?>
+			<p style="margin-top: 5px;">Default: <code>false</code></p>
 		</td>
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
@@ -317,6 +373,17 @@ class cfs_datetime_picker extends cfs_field
 		</td>
 	</tr>
 
+	<tr class="field_option field_option_<?php echo $this->name; ?>">
+		<td class="label"></td>
+		<td>
+			<dl style="width: 100%;display:table;font-size: 15px;">
+				<dt style="display: table-cell; font-weight: bold; width: 135px;">Documentation</dt>
+				<dd style="display: table-cell;">
+					See <a href="https://chmln.github.io/flatpickr/" target="_blank">flatpickr</a> Page.
+				</dd>
+			</dl>
+		</td>
+	</tr>
 
 <?php
     }
