@@ -393,6 +393,7 @@ class cfs_datetime_picker extends cfs_field
 							'ar'  => 'Arabic',
 							'bn'  => 'Bangla',
 							'de'  => 'German',
+							'en'  => 'English',
 							'es'  => 'Spanish',
 							'fr'  => 'French',
 							'hi'  => 'Hindi',
@@ -404,7 +405,7 @@ class cfs_datetime_picker extends cfs_field
 						),
 						'force_single' => true,
 					),
-					'value' => $this->get_option( $field, 'localize', 'false' )
+					'value' => ("" !== $this->get_option( $field, 'localize' )) ? $this->get_option( $field, 'localize' ) : "en"
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>English</code></p>
@@ -430,7 +431,7 @@ class cfs_datetime_picker extends cfs_field
 ?>
 	<link href="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.css" rel="stylesheet">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.js"></script>
-	<?php if($this->get_option($field, 'localize')): ?>
+	<?php if($this->get_option($field, 'localize') && $this->get_option($field, 'localize') != "en"): ?>
 	<script src="<?php echo plugin_dir_url( __FILE__ ); ?>assets/js/lang/flatpickr.l10n.<?php echo $this->get_option($field, 'localize'); ?>.js"></script>
 	<?php endif ?>
 <?php
