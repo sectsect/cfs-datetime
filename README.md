@@ -1,6 +1,6 @@
 # CFS DateTime Add-on
 
-### Add Powerful Datetimepicker field type to [Custom Field Suite](https://wordpress.org/plugins/custom-field-suite/) using [flatpickr.js](https://chmln.github.io/flatpickr/).
+### Add Powerful Datetime picker field type to [Custom Field Suite](https://wordpress.org/plugins/custom-field-suite/) using [flatpickr.js](https://chmln.github.io/flatpickr/).
 
 #### Requirements
 - - -
