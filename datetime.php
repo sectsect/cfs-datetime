@@ -117,7 +117,7 @@ class cfs_datetime_picker extends cfs_field
 			<label>
 				<?php _e( 'data-maxdate', 'cfs-datetime' ); ?>
 				<div class="cfs_tooltip">
-                    <div class="tooltip_inner">In case of inputted to mindate field, This field is in sync with the value of date mindate field.</div>
+                    <div class="tooltip_inner">In case of inputted to mindate field, This field is relative (time) to value of mindate field.</div>
                 </div>
 			</label>
 		</td>
