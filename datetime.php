@@ -436,7 +436,7 @@ class cfs_datetime_picker extends cfs_field
 
     function input_head( $field = null ) {
 ?>
-	<link href="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.css" rel="stylesheet">
+	<link href="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.min.css" rel="stylesheet">
 	<style>
 		.cfs_input .cfs_datetime_picker input.flatpickr{
 			width: 160px !important;
@@ -448,7 +448,7 @@ class cfs_datetime_picker extends cfs_field
 			background-size: 14px auto;
 		}
 	</style>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.min.js"></script>
 	<?php if($this->get_option($field, 'localize') && $this->get_option($field, 'localize') != "en"): ?>
 	<script src="<?php echo plugin_dir_url( __FILE__ ); ?>assets/js/lang/flatpickr.l10n.<?php echo $this->get_option($field, 'localize'); ?>.js"></script>
 	<?php endif ?>
