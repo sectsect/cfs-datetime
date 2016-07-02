@@ -19,7 +19,7 @@ class cfs_datetime_picker extends cfs_field
 			flatpickr('.flatpickr');
 		});
 	</script>
-	<input type="text" name="<?php echo $field->input_name; ?>" class="flatpickr"<?php if($this->get_option($field, 'placeholder')): ?>
+	<input type="text" name="<?php echo $field->input_name; ?>" class="flatpickr<?php if($this->get_option($field, 'nocalendar') == "true"): ?> nocalendar<?php endif; ?>"<?php if($this->get_option($field, 'placeholder')): ?>
 		placeholder="<?php echo $this->get_option($field, 'placeholder'); ?>"<?php endif; ?>
 		<?php if($this->get_option($field, 'dateFormat')): ?> data-dateFormat="<?php echo $this->get_option($field, 'dateFormat'); ?>"<?php endif; ?>
 		<?php
@@ -440,6 +440,10 @@ class cfs_datetime_picker extends cfs_field
 			width: 160px !important;
 			background: url(<?php echo plugin_dir_url( __FILE__ ); ?>assets/images/calendar-full.svg) right 4px center no-repeat;
 			background-size: 16px auto;
+		}
+		.cfs_input .cfs_datetime_picker input.flatpickr.nocalendar{
+			background: url(<?php echo plugin_dir_url( __FILE__ ); ?>assets/images/clock.svg) right 4px center no-repeat;
+			background-size: 14px auto;
 		}
 	</style>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.js"></script>
