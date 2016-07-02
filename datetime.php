@@ -19,7 +19,7 @@ class cfs_datetime_picker extends cfs_field
 			flatpickr('.flatpickr');
 		});
 	</script>
-	<input name="<?php echo $field->input_name; ?>" class="flatpickr"<?php if($this->get_option($field, 'placeholder')): ?>
+	<input type="text" name="<?php echo $field->input_name; ?>" class="flatpickr"<?php if($this->get_option($field, 'placeholder')): ?>
 		placeholder="<?php echo $this->get_option($field, 'placeholder'); ?>"<?php endif; ?>
 		<?php if($this->get_option($field, 'dateFormat')): ?> data-dateFormat="<?php echo $this->get_option($field, 'dateFormat'); ?>"<?php endif; ?>
 		<?php
@@ -435,6 +435,13 @@ class cfs_datetime_picker extends cfs_field
     function input_head( $field = null ) {
 ?>
 	<link href="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.css" rel="stylesheet">
+	<style>
+		.cfs_input .cfs_datetime_picker input.flatpickr{
+			width: 160px !important;
+			background: url(<?php echo plugin_dir_url( __FILE__ ); ?>assets/images/calendar-full.svg) right 4px center no-repeat;
+			background-size: 16px auto;
+		}
+	</style>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.js"></script>
 	<?php if($this->get_option($field, 'localize') && $this->get_option($field, 'localize') != "en"): ?>
 	<script src="<?php echo plugin_dir_url( __FILE__ ); ?>assets/js/lang/flatpickr.l10n.<?php echo $this->get_option($field, 'localize'); ?>.js"></script>
