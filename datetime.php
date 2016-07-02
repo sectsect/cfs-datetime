@@ -19,7 +19,7 @@ class cfs_datetime_picker extends cfs_field
 			flatpickr('.flatpickr');
 		});
 	</script>
-	<input name="<?php echo $field->input_name; ?>" class=flatpickr<?php if($this->get_option($field, 'placeholder')): ?>
+	<input name="<?php echo $field->input_name; ?>" class="flatpickr"<?php if($this->get_option($field, 'placeholder')): ?>
 		placeholder="<?php echo $this->get_option($field, 'placeholder'); ?>"<?php endif; ?>
 		<?php if($this->get_option($field, 'dateFormat')): ?> data-dateFormat="<?php echo $this->get_option($field, 'dateFormat'); ?>"<?php endif; ?>
 		<?php
@@ -34,7 +34,7 @@ class cfs_datetime_picker extends cfs_field
 			}
 		?>
 		<?php if($mindate): ?> data-mindate="<?php echo $min; ?>"<?php endif; ?>
-		<?php if($maxdate): ?> data-maxdate="<?php echo $max; ?>""<?php endif; ?>
+		<?php if($maxdate): ?> data-maxdate="<?php echo $max; ?>"<?php endif; ?>
 		<?php if($this->get_option($field, 'enabletime') == "true"): ?> data-enabletime=<?php echo $this->get_option($field, 'enabletime'); ?><?php endif; ?>
 		<?php if($this->get_option($field, 'time_24hr') == "true"): ?> data-time_24hr=<?php echo $this->get_option($field, 'time_24hr'); ?><?php endif; ?>
 		<?php if($this->get_option($field, 'timeFormat')): ?> data-timeFormat="<?php echo $this->get_option($field, 'timeFormat'); ?>"<?php endif; ?>
