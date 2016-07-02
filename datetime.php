@@ -24,6 +24,7 @@ class cfs_datetime_picker extends cfs_field
 		<?php if($this->get_option($field, 'dateFormat')): ?> data-dateFormat="<?php echo $this->get_option($field, 'dateFormat'); ?>"<?php endif; ?>
 		<?php
 		    $today = new DateTime();
+			$today->setTimeZone(new DateTimeZone(get_option('timezone_string')));
 			$mindate = $this->get_option($field, 'mindate');
 			$maxdate = $this->get_option($field, 'maxdate');
 			if($mindate){
@@ -43,6 +44,7 @@ class cfs_datetime_picker extends cfs_field
 		<?php if($this->get_option($field, 'altFormat')): ?> data-altFormat="<?php echo $this->get_option($field, 'altFormat'); ?>"<?php endif; ?>
 		<?php
 			$today = new DateTime();
+			$today->setTimeZone(new DateTimeZone(get_option('timezone_string')));
 			$defaultdate = $this->get_option($field, 'defaultDate');
 			if($defaultdate && $defaultdate == "current"){
 				$default = $today->format('Y-m-d H:i:s');
