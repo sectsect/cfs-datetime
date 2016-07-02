@@ -50,7 +50,7 @@ class cfs_datetime_picker extends cfs_field
 				$default = $today->modify($defaultdate)->format('Y-m-d H:i:s');
 			}
 		?>
-		<?php if($defaultdate): ?> data-defaultDate="<?php echo $default; ?>"<?php endif; ?>
+		<?php if($defaultdate && !$field->value): ?> data-defaultDate="<?php echo $default; ?>"<?php endif; ?>
 		<?php if($this->get_option($field, 'utc') == "true"): ?> data-utc="<?php echo $this->get_option($field, 'utc'); ?>"<?php endif; ?>
 		<?php if($this->get_option($field, 'weeknumbers') == "true"): ?> data-weeknumbers=<?php echo $this->get_option($field, 'weeknumbers'); ?><?php endif; ?>
 		<?php if($this->get_option($field, 'inline') == "true"): ?>  data-inline=<?php echo $this->get_option($field, 'inline'); ?><?php endif; ?>
