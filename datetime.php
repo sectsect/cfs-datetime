@@ -450,7 +450,7 @@ class cfs_datetime_picker extends cfs_field
 	</style>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.min.js"></script>
 	<?php if($this->get_option($field, 'localize') && $this->get_option($field, 'localize') != "en"): ?>
-	<script src="<?php echo plugin_dir_url( __FILE__ ); ?>assets/js/lang/flatpickr.l10n.<?php echo $this->get_option($field, 'localize'); ?>.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.l10n.<?php echo $this->get_option($field, 'localize'); ?>.js"></script>
 	<?php endif ?>
 <?php
     }
