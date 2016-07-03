@@ -1,0 +1,15 @@
+.cfs_input{
+	.cfs_datetime_picker{
+		input{
+			&.flatpickr{
+				width: 160px !important;
+				background: url(../images/calendar-full.svg) right 4px center no-repeat;
+				background-size: 16px auto;
+				&.nocalendar{
+					background: url(../images/clock.svg) right 4px center no-repeat;
+					background-size: 14px auto;
+				}
+			}
+		}
+	}
+}

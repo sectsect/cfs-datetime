@@ -434,24 +434,12 @@ class cfs_datetime_picker extends cfs_field
 <?php
     }
 
-    function input_head( $field = null ) {
-?>
-	<link href="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.min.css" rel="stylesheet">
-	<style>
-		.cfs_input .cfs_datetime_picker input.flatpickr{
-			width: 160px !important;
-			background: url(<?php echo plugin_dir_url( __FILE__ ); ?>assets/images/calendar-full.svg) right 4px center no-repeat;
-			background-size: 16px auto;
+	function input_head( $field = null ) {
+		wp_enqueue_style('cfs-datetime-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.min.css', array());
+		wp_enqueue_style('cfs-datetime-styles', plugins_url('cfs-datetime') . '/assets/css/styles.css', array());
+		wp_enqueue_script('cfs-datetime-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.min.js', array('jquery'));
+		if($this->get_option($field, 'localize') && $this->get_option($field, 'localize') != "en"){
+			wp_enqueue_script('cfs-datetime-flatpickr-l10n', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.l10n.' . $this->get_option($field, 'localize') . '.js', array('cfs-datetime-flatpickr'));
 		}
-		.cfs_input .cfs_datetime_picker input.flatpickr.nocalendar{
-			background: url(<?php echo plugin_dir_url( __FILE__ ); ?>assets/images/clock.svg) right 4px center no-repeat;
-			background-size: 14px auto;
-		}
-	</style>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.min.js"></script>
-	<?php if($this->get_option($field, 'localize') && $this->get_option($field, 'localize') != "en"): ?>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.l10n.<?php echo $this->get_option($field, 'localize'); ?>.js"></script>
-	<?php endif ?>
-<?php
-    }
+	}
 }
