@@ -18,6 +18,7 @@
 See [flatpickr.js](https://chmln.github.io/flatpickr/) Page.
 
 #### Change log  
+ * **1.0.7** - Modify the load structure of css/js.
  * **1.0.6** - Add setTimeZone based on wordpress setting.
  * **1.0.5** - Add calendar icon to `<input>` tag.
  * **1.0.4** - Add support Localization.
