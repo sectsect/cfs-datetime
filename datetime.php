@@ -56,6 +56,7 @@ class cfs_datetime_picker extends cfs_field
 		<?php if($this->get_option($field, 'utc') == "true"): ?> data-utc="<?php echo $this->get_option($field, 'utc'); ?>"<?php endif; ?>
 		<?php if($this->get_option($field, 'weeknumbers') == "true"): ?> data-weeknumbers=<?php echo $this->get_option($field, 'weeknumbers'); ?><?php endif; ?>
 		<?php if($this->get_option($field, 'inline') == "true"): ?>  data-inline=<?php echo $this->get_option($field, 'inline'); ?><?php endif; ?>
+		<?php if($this->get_option($field, 'allowInput') == "true"): ?> data-allowInput=<?php echo $this->get_option($field, 'allowInput'); ?><?php endif; ?>
 		<?php if($this->get_option($field, 'hourIncrement')): ?> data-hourIncrement=<?php echo intval($this->get_option($field, 'hourIncrement')); ?><?php endif; ?>
 		<?php if($this->get_option($field, 'minuteIncrement')): ?> data-minuteIncrement=<?php echo intval($this->get_option($field, 'minuteIncrement')); ?><?php endif; ?>
 		 value="<?php echo $field->value; ?>">
@@ -369,6 +370,28 @@ class cfs_datetime_picker extends cfs_field
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>5</code></p>
+		</td>
+	</tr>
+	<tr class="field_option field_option_<?php echo $this->name; ?>">
+		<td class="label">
+			<label><?php _e( 'data-allowInput', 'cfs-datetime' ); ?></label>
+		</td>
+		<td>
+			<?php
+				CFS()->create_field( array(
+					'type'        => 'select',
+					'input_name'  => "cfs[fields][$key][options][allowInput]",
+					'options'     => array(
+						'choices' => array(
+							'false'  => 'false',
+							'true'   => 'true'
+						),
+						'force_single' => true,
+					),
+					'value' => $this->get_option( $field, 'allowInput', 'false' )
+				));
+			?>
+			<p style="margin-top: 5px;">Default: <code>false</code></p>
 		</td>
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
