@@ -13,6 +13,14 @@
  2. `git clone git@github.com:sectsect/cfs-datetime.git`  
  That's it:ok_hand:
 
+#### Screenshot
+
+| Type | Capture |
+| ---- | ------- |
+| Date and Time | <img src="https://github-sect.s3-ap-northeast-1.amazonaws.com/cfs-datetime/datetime.png" width="322" height="auto">   |
+| Date Only | <img src="https://github-sect.s3-ap-northeast-1.amazonaws.com/cfs-datetime/date.png" width="322" height="auto">   |
+| Time Only | <img src="https://github-sect.s3-ap-northeast-1.amazonaws.com/cfs-datetime/time.png" width="318" height="auto"> |
+
 #### Documentation
 - - -
 See [flatpickr.js](https://chmln.github.io/flatpickr/) Page.
