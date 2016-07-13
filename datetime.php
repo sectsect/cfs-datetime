@@ -470,9 +470,7 @@ class cfs_datetime_picker extends cfs_field
 
 	function input_head( $field = null ) {
 		wp_enqueue_style('cfs-datetime-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.min.css', array());
-
 		wp_enqueue_style('cfs-datetime-iconfont', '//cdn.linearicons.com/free/1.0.0/icon-font.min.css', array());
-
 		wp_enqueue_style('cfs-datetime-styles', plugins_url('cfs-datetime') . '/assets/css/styles.css', array());
 		wp_enqueue_script('cfs-datetime-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.min.js', array('jquery'));
 		if($this->get_option($field, 'localize') && $this->get_option($field, 'localize') != "en"){
