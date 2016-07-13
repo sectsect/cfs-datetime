@@ -8,7 +8,6 @@ class cfs_datetime_picker extends cfs_field
 		$this->label = __( 'DateTime (Advanced)', 'cfs-datetime' );
     }
 
-
     function html( $field ) {
 ?>
 	<script>
@@ -19,48 +18,60 @@ class cfs_datetime_picker extends cfs_field
 			flatpickr('.flatpickr');
 		});
 	</script>
-	<input type="text" name="<?php echo $field->input_name; ?>" class="flatpickr<?php if($this->get_option($field, 'nocalendar') == "true"): ?> nocalendar<?php endif; ?>"<?php if($this->get_option($field, 'placeholder')): ?>
-		placeholder="<?php echo $this->get_option($field, 'placeholder'); ?>"<?php endif; ?>
-		<?php if($this->get_option($field, 'dateFormat')): ?> data-dateFormat="<?php echo $this->get_option($field, 'dateFormat'); ?>"<?php endif; ?>
-		<?php
-		    $today = new DateTime();
-			$today->setTimeZone(new DateTimeZone(get_option('timezone_string')));
-			$mindate = $this->get_option($field, 'mindate');
-			$maxdate = $this->get_option($field, 'maxdate');
-			if($mindate){
-				$min = $today->modify($mindate)->format('Y-m-d');
-			}
-			if($maxdate){
-				$max = $today->modify($maxdate)->format('Y-m-d');
-			}
-		?>
-		<?php if($mindate): ?> data-mindate="<?php echo $min; ?>"<?php endif; ?>
-		<?php if($maxdate): ?> data-maxdate="<?php echo $max; ?>"<?php endif; ?>
-		<?php if($this->get_option($field, 'enabletime') == "true"): ?> data-enabletime=<?php echo $this->get_option($field, 'enabletime'); ?><?php endif; ?>
-		<?php if($this->get_option($field, 'time_24hr') == "true"): ?> data-time_24hr=<?php echo $this->get_option($field, 'time_24hr'); ?><?php endif; ?>
-		<?php if($this->get_option($field, 'timeFormat')): ?> data-timeFormat="<?php echo $this->get_option($field, 'timeFormat'); ?>"<?php endif; ?>
-		<?php if($this->get_option($field, 'nocalendar') == "true"): ?> data-nocalendar=<?php echo $this->get_option($field, 'nocalendar'); ?><?php endif; ?>
-		<?php if($this->get_option($field, 'altinput') == "true"): ?> data-altinput=<?php echo $this->get_option($field, 'altinput'); ?><?php endif; ?>
-		<?php if($this->get_option($field, 'altFormat')): ?> data-altFormat="<?php echo $this->get_option($field, 'altFormat'); ?>"<?php endif; ?>
-		<?php
-			$today = new DateTime();
-			$today->setTimeZone(new DateTimeZone(get_option('timezone_string')));
-			$defaultdate = $this->get_option($field, 'defaultDate');
-			if($defaultdate && $defaultdate == "current"){
-				$default = $today->format('Y-m-d H:i:s');
-			}elseif($defaultdate && $defaultdate != "current"){
-				$default = $today->modify($defaultdate)->format('Y-m-d H:i:s');
-			}
-		?>
-		<?php if($defaultdate && !$field->value): ?> data-defaultDate="<?php echo $default; ?>"<?php endif; ?>
-		<?php if($this->get_option($field, 'utc') == "true"): ?> data-utc="<?php echo $this->get_option($field, 'utc'); ?>"<?php endif; ?>
-		<?php if($this->get_option($field, 'weeknumbers') == "true"): ?> data-weeknumbers=<?php echo $this->get_option($field, 'weeknumbers'); ?><?php endif; ?>
-		<?php if($this->get_option($field, 'inline') == "true"): ?>  data-inline=<?php echo $this->get_option($field, 'inline'); ?><?php endif; ?>
-		<?php if($this->get_option($field, 'allowInput') == "true"): ?> data-allowInput=<?php echo $this->get_option($field, 'allowInput'); ?><?php endif; ?>
-		<?php if($this->get_option($field, 'hourIncrement')): ?> data-hourIncrement=<?php echo intval($this->get_option($field, 'hourIncrement')); ?><?php endif; ?>
-		<?php if($this->get_option($field, 'minuteIncrement')): ?> data-minuteIncrement=<?php echo intval($this->get_option($field, 'minuteIncrement')); ?><?php endif; ?>
-		 value="<?php echo $field->value; ?>">
+		 <div class="flatpickr input-group<?php if($this->get_option($field, 'nocalendar') == "true"): ?> nocalendar<?php endif; ?>" data-wrap="true" <?php if($this->get_option($field, 'dateFormat')): ?> data-dateFormat="<?php echo $this->get_option($field, 'dateFormat'); ?>"<?php endif; ?>
+			<?php
+				$today = new DateTime();
+				$today->setTimeZone(new DateTimeZone(get_option('timezone_string')));
+				$mindate = $this->get_option($field, 'mindate');
+				$maxdate = $this->get_option($field, 'maxdate');
+				 if($mindate){
+					$min = $today->modify($mindate)->format('Y-m-d');
+				}
+				if($maxdate){
+					$max = $today->modify($maxdate)->format('Y-m-d');
+				}
+			?>
+			<?php if($mindate): ?> data-mindate="<?php echo $min; ?>"<?php endif; ?>
+			<?php if($maxdate): ?> data-maxdate="<?php echo $max; ?>"<?php endif; ?>
+			<?php if($this->get_option($field, 'enabletime') == "true"): ?> data-enabletime=<?php echo $this->get_option($field, 'enabletime'); ?><?php endif; ?>
+			<?php if($this->get_option($field, 'time_24hr') == "true"): ?> data-time_24hr=<?php echo $this->get_option($field, 'time_24hr'); ?><?php endif; ?>
+			<?php if($this->get_option($field, 'timeFormat')): ?> data-timeFormat="<?php echo $this->get_option($field, 'timeFormat'); ?>"<?php endif; ?>
+			<?php if($this->get_option($field, 'nocalendar') == "true"): ?> data-nocalendar=<?php echo $this->get_option($field, 'nocalendar'); ?><?php endif; ?>
+			<?php if($this->get_option($field, 'altinput') == "true"): ?> data-altinput=<?php echo $this->get_option($field, 'altinput'); ?><?php endif; ?>
+			<?php if($this->get_option($field, 'altFormat')): ?> data-altFormat="<?php echo $this->get_option($field, 'altFormat'); ?>"<?php endif; ?>
+			<?php
+				$today = new DateTime();
+				$today->setTimeZone(new DateTimeZone(get_option('timezone_string')));
+				$defaultdate = $this->get_option($field, 'defaultDate');
+				if($defaultdate && $defaultdate == "current"){
+					$default = $today->format('Y-m-d H:i:s');
+				}elseif($defaultdate && $defaultdate != "current"){
+					$default = $today->modify($defaultdate)->format('Y-m-d H:i:s');
+				}
+			?>
+			<?php if($defaultdate && !$field->value): ?> data-defaultDate="<?php echo $default; ?>"<?php endif; ?>
+			<?php if($this->get_option($field, 'utc') == "true"): ?> data-utc="<?php echo $this->get_option($field, 'utc'); ?>"<?php endif; ?>
+			<?php if($this->get_option($field, 'weeknumbers') == "true"): ?> data-weeknumbers=<?php echo $this->get_option($field, 'weeknumbers'); ?><?php endif; ?>
+			<?php if($this->get_option($field, 'inline') == "true"): ?>  data-inline=<?php echo $this->get_option($field, 'inline'); ?><?php endif; ?>
+			<?php if($this->get_option($field, 'allowInput') == "true"): ?> data-allowInput=<?php echo $this->get_option($field, 'allowInput'); ?><?php endif; ?>
+			<?php if($this->get_option($field, 'hourIncrement')): ?> data-hourIncrement=<?php echo intval($this->get_option($field, 'hourIncrement')); ?><?php endif; ?>
+			<?php if($this->get_option($field, 'minuteIncrement')): ?> data-minuteIncrement=<?php echo intval($this->get_option($field, 'minuteIncrement')); ?><?php endif; ?>>
+			<input type="text" name="<?php echo $field->input_name; ?>" class="form-control"<?php if($this->get_option($field, 'placeholder')): ?>
+				placeholder="<?php echo $this->get_option($field, 'placeholder'); ?>"<?php endif; ?>
+				 data-input data-open
+				 value="<?php echo $field->value; ?>">
 
+			<a class="input-btn" data-toggle>
+				<?php if($this->get_option($field, 'nocalendar') != "true"): ?>
+					<i class="lnr lnr-calendar-full"></i>
+				<?php else: ?>
+					<i class="lnr lnr-clock"></i>
+				<?php endif; ?>
+			</a>
+			<a class="input-btn" data-clear>
+				<i class="lnr lnr-cross"></i>
+			</a>
+		</div>
 <?php
     }
 
@@ -459,6 +470,9 @@ class cfs_datetime_picker extends cfs_field
 
 	function input_head( $field = null ) {
 		wp_enqueue_style('cfs-datetime-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.min.css', array());
+
+		wp_enqueue_style('cfs-datetime-iconfont', '//cdn.linearicons.com/free/1.0.0/icon-font.min.css', array());
+
 		wp_enqueue_style('cfs-datetime-styles', plugins_url('cfs-datetime') . '/assets/css/styles.css', array());
 		wp_enqueue_script('cfs-datetime-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.min.js', array('jquery'));
 		if($this->get_option($field, 'localize') && $this->get_option($field, 'localize') != "en"){
