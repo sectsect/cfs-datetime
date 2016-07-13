@@ -18,6 +18,7 @@
 See [flatpickr.js](https://chmln.github.io/flatpickr/) Page.
 
 #### Change log  
+ * **1.1.0** -  Grouping for clearing the input value.
  * **1.0.8** - Add option for `allowInput`.
  * **1.0.7** - Modify the load structure of css/js.
  * **1.0.6** - Add setTimeZone based on wordpress setting.
