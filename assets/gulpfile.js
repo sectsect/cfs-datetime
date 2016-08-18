@@ -61,5 +61,5 @@ gulp.task("sass", function() {
 	watch
 ================================================== */
 gulp.task("default", ['sass'], function() {
-	gulp.watch("./sass/*.scss",["sass"]);
+	gulp.watch("sass/*.scss",["sass"]);
 });
