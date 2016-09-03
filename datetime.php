@@ -5,10 +5,10 @@ class cfs_datetime_picker extends cfs_field
 
     function __construct() {
         $this->name = 'datetime_picker';
-		$this->label = __( 'DateTime (Advanced)', 'cfs-datetime' );
+		$this->label = __('DateTime (Advanced)', 'cfs-datetime');
     }
 
-    function html( $field ) {
+    function html($field) {
 ?>
 	<script>
 		jQuery(function(){
@@ -75,18 +75,18 @@ class cfs_datetime_picker extends cfs_field
 <?php
     }
 
-	function options_html( $key, $field ) {
+	function options_html($key, $field) {
 ?>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'placeholder', 'cfs-datetime' ); ?></label>
+			<label><?php _e('placeholder', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'             => 'text',
 					'input_name'       => "cfs[fields][$key][options][placeholder]",
-					'value'            => ("" !== $this->get_option( $field, 'placeholder' )) ? $this->get_option( $field, 'placeholder' ) : ""
+					'value'            => ("" !== $this->get_option($field, 'placeholder')) ? $this->get_option($field, 'placeholder') : ""
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>null</code></p>
@@ -94,14 +94,14 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-dateFormat', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-dateFormat', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'             => 'text',
 					'input_name'       => "cfs[fields][$key][options][dateFormat]",
-					'value'            => ("" !== $this->get_option( $field, 'dateFormat' )) ? $this->get_option( $field, 'dateFormat' ) : ""
+					'value'            => ("" !== $this->get_option($field, 'dateFormat')) ? $this->get_option($field, 'dateFormat') : ""
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>Y-m-d</code></p>
@@ -109,14 +109,14 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-mindate', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-mindate', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'             => 'text',
 					'input_name'       => "cfs[fields][$key][options][mindate]",
-					'value'            => ("" !== $this->get_option( $field, 'mindate' )) ? $this->get_option( $field, 'mindate' ) : ""
+					'value'            => ("" !== $this->get_option($field, 'mindate')) ? $this->get_option($field, 'mindate') : ""
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>null</code></p>
@@ -129,7 +129,7 @@ class cfs_datetime_picker extends cfs_field
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
 			<label>
-				<?php _e( 'data-maxdate', 'cfs-datetime' ); ?>
+				<?php _e('data-maxdate', 'cfs-datetime'); ?>
 				<div class="cfs_tooltip">
                     <div class="tooltip_inner">In case of inputted to mindate field, This field is relative (time) to value of mindate field.</div>
                 </div>
@@ -137,10 +137,10 @@ class cfs_datetime_picker extends cfs_field
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'             => 'text',
 					'input_name'       => "cfs[fields][$key][options][maxdate]",
-					'value'            => ("" !== $this->get_option( $field, 'maxdate' )) ? $this->get_option( $field, 'maxdate' ) : ""
+					'value'            => ("" !== $this->get_option($field, 'maxdate')) ? $this->get_option($field, 'maxdate') : ""
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>null</code></p>
@@ -152,11 +152,11 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-enabletime', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-enabletime', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'        => 'select',
 					'input_name'  => "cfs[fields][$key][options][enabletime]",
 					'options'     => array(
@@ -166,7 +166,7 @@ class cfs_datetime_picker extends cfs_field
 						),
 						'force_single' => true,
 					),
-					'value' => $this->get_option( $field, 'enabletime', 'true' ),
+					'value' => $this->get_option($field, 'enabletime', 'true'),
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>false</code></p>
@@ -174,11 +174,11 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-time_24hr', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-time_24hr', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'        => 'select',
 					'input_name'  => "cfs[fields][$key][options][time_24hr]",
 					'options'     => array(
@@ -188,7 +188,7 @@ class cfs_datetime_picker extends cfs_field
 						),
 						'force_single' => true,
 					),
-					'value' => $this->get_option( $field, 'time_24hr', 'false' )
+					'value' => $this->get_option($field, 'time_24hr', 'false')
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>false</code></p>
@@ -196,14 +196,14 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-timeFormat', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-timeFormat', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'             => 'text',
 					'input_name'       => "cfs[fields][$key][options][timeFormat]",
-					'value'            => ("" !== $this->get_option( $field, 'timeFormat' )) ? $this->get_option( $field, 'timeFormat' ) : ""
+					'value'            => ("" !== $this->get_option($field, 'timeFormat')) ? $this->get_option($field, 'timeFormat') : ""
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>h:i A</code></p>
@@ -211,11 +211,11 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-nocalendar', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-nocalendar', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'        => 'select',
 					'input_name'  => "cfs[fields][$key][options][nocalendar]",
 					'options'     => array(
@@ -225,7 +225,7 @@ class cfs_datetime_picker extends cfs_field
 						),
 						'force_single' => true,
 					),
-					'value' => $this->get_option( $field, 'nocalendar', 'false' )
+					'value' => $this->get_option($field, 'nocalendar', 'false')
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>false</code></p>
@@ -233,11 +233,11 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-altinput', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-altinput', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'        => 'select',
 					'input_name'  => "cfs[fields][$key][options][altinput]",
 					'options'     => array(
@@ -247,7 +247,7 @@ class cfs_datetime_picker extends cfs_field
 						),
 						'force_single' => true,
 					),
-					'value' => $this->get_option( $field, 'altinput', 'false' )
+					'value' => $this->get_option($field, 'altinput', 'false')
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>false</code></p>
@@ -255,14 +255,14 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-altFormat', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-altFormat', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'             => 'text',
 					'input_name'       => "cfs[fields][$key][options][altFormat]",
-					'value'            => ("" !== $this->get_option( $field, 'altFormat' )) ? $this->get_option( $field, 'altFormat' ) : ""
+					'value'            => ("" !== $this->get_option($field, 'altFormat')) ? $this->get_option($field, 'altFormat') : ""
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>F j, Y</code></p>
@@ -270,14 +270,14 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-defaultDate', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-defaultDate', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'             => 'text',
 					'input_name'       => "cfs[fields][$key][options][defaultDate]",
-					'value'            => ("" !== $this->get_option( $field, 'defaultDate' )) ? $this->get_option( $field, 'defaultDate' ) : ""
+					'value'            => ("" !== $this->get_option($field, 'defaultDate')) ? $this->get_option($field, 'defaultDate') : ""
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>null</code></p>
@@ -289,11 +289,11 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-utc', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-utc', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'        => 'select',
 					'input_name'  => "cfs[fields][$key][options][utc]",
 					'options'     => array(
@@ -303,7 +303,7 @@ class cfs_datetime_picker extends cfs_field
 						),
 						'force_single' => true,
 					),
-					'value' => $this->get_option( $field, 'utc', 'false' )
+					'value' => $this->get_option($field, 'utc', 'false')
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>false</code></p>
@@ -311,11 +311,11 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-weeknumbers', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-weeknumbers', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'        => 'select',
 					'input_name'  => "cfs[fields][$key][options][weeknumbers]",
 					'options'     => array(
@@ -325,7 +325,7 @@ class cfs_datetime_picker extends cfs_field
 						),
 						'force_single' => true,
 					),
-					'value' => $this->get_option( $field, 'weeknumbers', 'false' )
+					'value' => $this->get_option($field, 'weeknumbers', 'false')
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>false</code></p>
@@ -333,11 +333,11 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-inline', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-inline', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'        => 'select',
 					'input_name'  => "cfs[fields][$key][options][inline]",
 					'options'     => array(
@@ -347,7 +347,7 @@ class cfs_datetime_picker extends cfs_field
 						),
 						'force_single' => true,
 					),
-					'value' => $this->get_option( $field, 'inline', 'false' )
+					'value' => $this->get_option($field, 'inline', 'false')
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>false</code></p>
@@ -355,14 +355,14 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-hourIncrement', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-hourIncrement', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'             => 'text',
 					'input_name'       => "cfs[fields][$key][options][hourIncrement]",
-					'value'            => ("" !== $this->get_option( $field, 'hourIncrement' )) ? $this->get_option( $field, 'hourIncrement' ) : ""
+					'value'            => ("" !== $this->get_option($field, 'hourIncrement')) ? $this->get_option($field, 'hourIncrement') : ""
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>1</code></p>
@@ -370,14 +370,14 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-minuteIncrement', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-minuteIncrement', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'             => 'text',
 					'input_name'       => "cfs[fields][$key][options][minuteIncrement]",
-					'value'            => ("" !== $this->get_option( $field, 'minuteIncrement' )) ? $this->get_option( $field, 'minuteIncrement' ) : ""
+					'value'            => ("" !== $this->get_option($field, 'minuteIncrement')) ? $this->get_option($field, 'minuteIncrement') : ""
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>5</code></p>
@@ -385,11 +385,11 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'data-allowInput', 'cfs-datetime' ); ?></label>
+			<label><?php _e('data-allowInput', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'        => 'select',
 					'input_name'  => "cfs[fields][$key][options][allowInput]",
 					'options'     => array(
@@ -399,7 +399,7 @@ class cfs_datetime_picker extends cfs_field
 						),
 						'force_single' => true,
 					),
-					'value' => $this->get_option( $field, 'allowInput', 'false' )
+					'value' => $this->get_option($field, 'allowInput', 'false')
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>false</code></p>
@@ -407,14 +407,14 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'l10n.firstDayOfWeek', 'cfs-datetime' ); ?></label>
+			<label><?php _e('l10n.firstDayOfWeek', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'             => 'text',
 					'input_name'       => "cfs[fields][$key][options][l10nfirstDayOfWeek]",
-					'value'            => ("" !== $this->get_option( $field, 'l10nfirstDayOfWeek' )) ? $this->get_option( $field, 'l10nfirstDayOfWeek' ) : ""
+					'value'            => ("" !== $this->get_option($field, 'l10nfirstDayOfWeek')) ? $this->get_option($field, 'l10nfirstDayOfWeek') : ""
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>0</code><br>Start the calendar on a different weekday (0 = Sunday, 1 = Monday, 2 = Tuesday, etc.)</p>
@@ -422,11 +422,11 @@ class cfs_datetime_picker extends cfs_field
 	</tr>
 	<tr class="field_option field_option_<?php echo $this->name; ?>">
 		<td class="label">
-			<label><?php _e( 'Localization', 'cfs-datetime' ); ?></label>
+			<label><?php _e('Localization', 'cfs-datetime'); ?></label>
 		</td>
 		<td>
 			<?php
-				CFS()->create_field( array(
+				CFS()->create_field(array(
 					'type'        => 'select',
 					'input_name'  => "cfs[fields][$key][options][localize]",
 					'options'     => array(
@@ -446,7 +446,7 @@ class cfs_datetime_picker extends cfs_field
 						),
 						'force_single' => true,
 					),
-					'value' => ("" !== $this->get_option( $field, 'localize' )) ? $this->get_option( $field, 'localize' ) : "en"
+					'value' => ("" !== $this->get_option($field, 'localize')) ? $this->get_option($field, 'localize') : "en"
 				));
 			?>
 			<p style="margin-top: 5px;">Default: <code>English</code></p>
@@ -468,7 +468,7 @@ class cfs_datetime_picker extends cfs_field
 <?php
     }
 
-	function input_head( $field = null ) {
+	function input_head($field = null) {
 		wp_enqueue_style('cfs-datetime-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.min.css', array());
 		wp_enqueue_style('cfs-datetime-iconfont', '//cdn.linearicons.com/free/1.0.0/icon-font.min.css', array());
 		wp_enqueue_style('cfs-datetime-styles', plugins_url('cfs-datetime') . '/assets/css/styles.css', array());

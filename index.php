@@ -15,14 +15,14 @@ class cfs_datetime_picker_addon
 {
     function __construct() {
         add_filter('cfs_field_types', array($this, 'cfs_field_types'));
-		add_action( 'plugins_loaded', 'cfsdatetime_load_textdomain' );
+		add_action('plugins_loaded', 'cfsdatetime_load_textdomain');
         function cfsdatetime_load_textdomain() {
-			load_plugin_textdomain( 'cfs-datetime', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
+			load_plugin_textdomain('cfs-datetime', false, plugin_basename(dirname(__FILE__)) . '/languages');
         }
     }
 
-    function cfs_field_types( $field_types ) {
-        $field_types['datetime_picker'] = dirname( __FILE__ ) . '/datetime.php';
+    function cfs_field_types($field_types) {
+        $field_types['datetime_picker'] = dirname(__FILE__) . '/datetime.php';
         return $field_types;
     }
 }
