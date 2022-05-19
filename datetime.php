@@ -1,5 +1,4 @@
 <?php
-
 class cfs_datetime_picker extends cfs_field
 {
 
@@ -12,55 +11,39 @@ class cfs_datetime_picker extends cfs_field
 ?>
 	<script>
 		jQuery(function(){
-			<?php if($this->get_option($field, 'l10nfirstDayOfWeek') && $this->get_option($field, 'l10nfirstDayOfWeek') != 0): ?>
-			flatpickr.init.prototype.l10n.firstDayOfWeek = <?php echo intval($this->get_option($field, 'l10nfirstDayOfWeek')); ?>;
-			<?php endif; ?>
-			flatpickr('.flatpickr');
+			flatpickr('.flatpickr', {
+				locale: {
+					firstDayOfWeek: <?php if ( $this->get_option( $field, 'l10nfirstDayOfWeek' ) ) { echo $this->get_option( $field, 'l10nfirstDayOfWeek' ); } else { echo '0'; } ?>,
+				},
+				dateFormat: '<?php if ( $this->get_option( $field, 'dateFormat' ) ) { echo $this->get_option( $field, 'dateFormat' ); } else { echo 'Y-m-d'; } ?>',
+				minDate: <?php if ( $mindate ) { echo $min; } else { echo 'null'; } ?>,
+				maxDate: <?php if ( $maxdate ) { echo $max; } else { echo 'null'; } ?>,
+				enableTime: <?php echo $this->get_option( $field, 'enabletime' ); ?>,
+				time_24hr: <?php echo $this->get_option( $field, 'time_24hr' ); ?>,
+				timeFormat: '<?php if ( $this->get_option( $field, 'timeformat' ) ) { echo $this->get_option( $field, 'timeformat' ); } else { echo 'h:i A'; } ?>',
+				nocalendar: <?php echo $this->get_option( $field, 'nocalendar' ); ?>,
+				altinput: <?php echo $this->get_option( $field, 'altinput' ); ?>,
+				altFormat: '<?php if ( $this->get_option( $field, 'altformat' ) ) { echo $this->get_option( $field, 'altformat' ); } else { echo 'F j, Y'; } ?>',
+				defaultDate: <?php if ( $default ) { echo $default; } else { echo 'null'; } ?>,
+				utc: <?php if ( $this->get_option( $field, 'utc' ) ) { echo $this->get_option( $field, 'utc' ); } else { echo 'false'; } ?>,
+				weeknumbers: <?php if ( $this->get_option( $field, 'weeknumbers' ) ) { echo $this->get_option( $field, 'weeknumbers' ); } else { echo 'false'; } ?>,
+				inline: <?php echo $this->get_option( $field, 'inline' ); ?>,
+				allowInput: <?php echo $this->get_option( $field, 'allowInput' ); ?>,
+				hourIncrement: <?php if ( $this->get_option( $field, 'hourIncrement' ) ) { echo $this->get_option( $field, 'hourIncrement' ); } else { echo '1'; } ?>,
+				minuteIncrement: <?php if ( $this->get_option( $field, 'minuteIncrement' ) ) { echo $this->get_option( $field, 'minuteIncrement' ); } else { echo '5'; } ?>,
+			});
 		});
 	</script>
-		 <div class="flatpickr input-group<?php if($this->get_option($field, 'nocalendar') == "true"): ?> nocalendar<?php endif; ?>" data-wrap="true" <?php if($this->get_option($field, 'dateFormat')): ?> data-dateFormat="<?php echo $this->get_option($field, 'dateFormat'); ?>"<?php endif; ?>
-			<?php
-				$today = new DateTime();
-				$today->setTimeZone(new DateTimeZone(get_option('timezone_string')));
-				$mindate = $this->get_option($field, 'mindate');
-				$maxdate = $this->get_option($field, 'maxdate');
-				 if($mindate){
-					$min = $today->modify($mindate)->format('Y-m-d');
-				}
-				if($maxdate){
-					$max = $today->modify($maxdate)->format('Y-m-d');
-				}
-			?>
-			<?php if($mindate): ?> data-mindate="<?php echo $min; ?>"<?php endif; ?>
-			<?php if($maxdate): ?> data-maxdate="<?php echo $max; ?>"<?php endif; ?>
-			<?php if($this->get_option($field, 'enabletime') == "true"): ?> data-enabletime=<?php echo $this->get_option($field, 'enabletime'); ?><?php endif; ?>
-			<?php if($this->get_option($field, 'time_24hr') == "true"): ?> data-time_24hr=<?php echo $this->get_option($field, 'time_24hr'); ?><?php endif; ?>
-			<?php if($this->get_option($field, 'timeFormat')): ?> data-timeFormat="<?php echo $this->get_option($field, 'timeFormat'); ?>"<?php endif; ?>
-			<?php if($this->get_option($field, 'nocalendar') == "true"): ?> data-nocalendar=<?php echo $this->get_option($field, 'nocalendar'); ?><?php endif; ?>
-			<?php if($this->get_option($field, 'altinput') == "true"): ?> data-altinput=<?php echo $this->get_option($field, 'altinput'); ?><?php endif; ?>
-			<?php if($this->get_option($field, 'altFormat')): ?> data-altFormat="<?php echo $this->get_option($field, 'altFormat'); ?>"<?php endif; ?>
-			<?php
-				$today = new DateTime();
-				$today->setTimeZone(new DateTimeZone(get_option('timezone_string')));
-				$defaultdate = $this->get_option($field, 'defaultDate');
-				if($defaultdate && $defaultdate == "current"){
-					$default = $today->format('Y-m-d H:i:s');
-				}elseif($defaultdate && $defaultdate != "current"){
-					$default = $today->modify($defaultdate)->format('Y-m-d H:i:s');
-				}
-			?>
-			<?php if($defaultdate && !$field->value): ?> data-defaultDate="<?php echo $default; ?>"<?php endif; ?>
-			<?php if($this->get_option($field, 'utc') == "true"): ?> data-utc="<?php echo $this->get_option($field, 'utc'); ?>"<?php endif; ?>
-			<?php if($this->get_option($field, 'weeknumbers') == "true"): ?> data-weeknumbers=<?php echo $this->get_option($field, 'weeknumbers'); ?><?php endif; ?>
-			<?php if($this->get_option($field, 'inline') == "true"): ?>  data-inline=<?php echo $this->get_option($field, 'inline'); ?><?php endif; ?>
-			<?php if($this->get_option($field, 'allowInput') == "true"): ?> data-allowInput=<?php echo $this->get_option($field, 'allowInput'); ?><?php endif; ?>
-			<?php if($this->get_option($field, 'hourIncrement')): ?> data-hourIncrement=<?php echo intval($this->get_option($field, 'hourIncrement')); ?><?php endif; ?>
-			<?php if($this->get_option($field, 'minuteIncrement')): ?> data-minuteIncrement=<?php echo intval($this->get_option($field, 'minuteIncrement')); ?><?php endif; ?>>
-			<input type="text" name="<?php echo $field->input_name; ?>" class="form-control"<?php if($this->get_option($field, 'placeholder')): ?>
+		<div class="flatpickr" data-wrap="true">
+			<input
+				type="text"
+				name="<?php echo $field->input_name; ?>"
+				class="form-control"<?php if($this->get_option($field, 'placeholder')): ?>
 				placeholder="<?php echo $this->get_option($field, 'placeholder'); ?>"<?php endif; ?>
-				 data-input data-open
-				 value="<?php echo $field->value; ?>">
-
+				data-input
+				data-open
+				value="<?php echo $field->value; ?>"
+			>
 			<a class="input-btn" data-toggle>
 				<?php if($this->get_option($field, 'nocalendar') != "true"): ?>
 					<i class="lnr lnr-calendar-full"></i>
