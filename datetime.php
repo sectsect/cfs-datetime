@@ -9,7 +9,7 @@ class cfs_datetime_picker extends cfs_field {
 	function html( $field ) {
 		?>
 		<script>
-			jQuery(function(){
+			jQuery(function() {
 				flatpickr('.flatpickr-<?php echo $field->id; ?>', {
 					locale: {
 						firstDayOfWeek: <?php if ( $this->get_option( $field, 'l10nfirstDayOfWeek' ) ) { echo $this->get_option( $field, 'l10nfirstDayOfWeek' ); } else { echo '0'; } ?>,
