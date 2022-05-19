@@ -2,7 +2,7 @@
 /*
 Plugin Name: CFS - DateTime Add-on
 Plugin URI: https://github.com/sectsect/cfs-datetime
-Description: Add Powerful Datetimepicker field type for Custom Field Suite using flatpickr.js.
+Description: Add Powerful Datetimepicker field type for Custom Field Suite with flatpickr.js.
 Author: SECT INTERACTIVE AGENCY
 Version: 1.2.0
 Author URI: https://github.com/sectsect
