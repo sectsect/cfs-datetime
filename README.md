@@ -1,19 +1,18 @@
 # CFS DateTime Add-on
 
-### Add Powerful Datetime picker field type to [Custom Field Suite](https://wordpress.org/plugins/custom-field-suite/) using [flatpickr.js](https://chmln.github.io/flatpickr/).
+Add Powerful Datetime picker field type to [Custom Field Suite](https://wordpress.org/plugins/custom-field-suite/) using [flatpickr.js](https://chmln.github.io/flatpickr/).
 
-#### Requirements
-- - -
+## Requirements
+
 * Activation [Custom Field Suite](https://wordpress.org/plugins/custom-field-suite/) Plugin.
 
-#### Installation
-- - -
+## Installation
 
  1. `cd /path-to-your/wp-content/plugins/`
  2. `git clone git@github.com:sectsect/cfs-datetime.git`  
  That's it:ok_hand:
 
-#### Screenshot
+## Screenshot
 
 | Type | Capture |
 | ---- | ------- |
@@ -23,10 +22,10 @@
 
 #### Documentation
 - - -
-See [flatpickr.js](https://chmln.github.io/flatpickr/) Page.
+See [flatpickr.js](https://chmln.github.io/flatpickr/) Doc.
 
 #### Change log  
- * **1.2.0** - Code refactor.
+ * **1.2.0** - Code refactor / Fix bugs.
  * **1.1.0** - Grouping for clearing the input value.
  * **1.0.8** - Add option for `allowInput`.
  * **1.0.7** - Modify the load structure of css/js.
