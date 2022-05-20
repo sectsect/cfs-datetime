@@ -20,12 +20,12 @@ class cfs_datetime_picker extends cfs_field {
 					enableTime: <?php echo $this->get_option( $field, 'enabletime' ); ?>,
 					time_24hr: <?php echo $this->get_option( $field, 'time_24hr' ); ?>,
 					timeFormat: '<?php if ( $this->get_option( $field, 'timeformat' ) ) { echo $this->get_option( $field, 'timeformat' ); } else { echo 'h:i A'; } ?>',
-					nocalendar: <?php echo $this->get_option( $field, 'nocalendar' ); ?>,
-					altinput: <?php echo $this->get_option( $field, 'altinput' ); ?>,
+					noCalendar: <?php echo $this->get_option( $field, 'nocalendar' ); ?>,
+					altInput: <?php echo $this->get_option( $field, 'altinput' ); ?>,
 					altFormat: '<?php if ( $this->get_option( $field, 'altformat' ) ) { echo $this->get_option( $field, 'altformat' ); } else { echo 'F j, Y'; } ?>',
 					defaultDate: <?php if ( $default ) { echo $default; } else { echo 'null'; } ?>,
 					utc: <?php if ( $this->get_option( $field, 'utc' ) ) { echo $this->get_option( $field, 'utc' ); } else { echo 'false'; } ?>,
-					weeknumbers: <?php if ( $this->get_option( $field, 'weeknumbers' ) ) { echo $this->get_option( $field, 'weeknumbers' ); } else { echo 'false'; } ?>,
+					weekNumbers: <?php if ( $this->get_option( $field, 'weeknumbers' ) ) { echo $this->get_option( $field, 'weeknumbers' ); } else { echo 'false'; } ?>,
 					inline: <?php echo $this->get_option( $field, 'inline' ); ?>,
 					allowInput: <?php echo $this->get_option( $field, 'allowInput' ); ?>,
 					hourIncrement: <?php if ( $this->get_option( $field, 'hourIncrement' ) ) { echo $this->get_option( $field, 'hourIncrement' ); } else { echo '1'; } ?>,
@@ -44,11 +44,8 @@ class cfs_datetime_picker extends cfs_field {
 				value="<?php echo $field->value; ?>"
 			>
 			<a class="input-btn" data-toggle>
-				<?php if ( $this->get_option( $field, 'nocalendar' ) != 'true' ) : ?>
-					<i class="lnr lnr-calendar-full"></i>
-				<?php else : ?>
-					<i class="lnr lnr-clock"></i>
-				<?php endif; ?>
+				<?php $class = ( $this->get_option( $field, 'nocalendar' ) !== 'true' ) ? 'lnr-calendar-full' : 'lnr-clock'; ?>
+				<i class="lnr <?php echo $class; ?>"></i>
 			</a>
 			<a class="input-btn" data-clear>
 				<i class="lnr lnr-cross"></i>
@@ -493,7 +490,7 @@ class cfs_datetime_picker extends cfs_field {
 		wp_enqueue_style( 'cfs-datetime-iconfont', '//cdn.linearicons.com/free/1.0.0/icon-font.min.css', array() );
 		wp_enqueue_style( 'cfs-datetime-styles', plugins_url( 'cfs-datetime' ) . '/assets/css/styles.css', array() );
 		wp_enqueue_script( 'cfs-datetime-flatpickr', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.min.js', array( 'jquery' ) );
-		if ( $this->get_option( $field, 'localize' ) && $this->get_option( $field, 'localize' ) != 'en' ) {
+		if ( $this->get_option( $field, 'localize' ) && $this->get_option( $field, 'localize' ) !== 'en' ) {
 			wp_enqueue_script( 'cfs-datetime-flatpickr-l10n', '//cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.8/flatpickr.l10n.' . $this->get_option( $field, 'localize' ) . '.js', array( 'cfs-datetime-flatpickr' ) );
 		}
 	}
